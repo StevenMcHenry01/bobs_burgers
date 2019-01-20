@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class AddBurger extends React.Component {
   nameRef = React.createRef()
@@ -7,14 +8,18 @@ class AddBurger extends React.Component {
   descRef = React.createRef()
   imageRef = React.createRef()
 
+  static propTypes = {
+    addBurger: PropTypes.func.isRequired
+  }
+
   createBurger = event => {
-    event.preventDefault();
+    event.preventDefault()
     const burger = {
       name: this.nameRef.current.value,
       price: parseFloat(this.priceRef.current.value),
       status: this.statusRef.current.value,
       desc: this.descRef.current.value,
-      image: this.imageRef.current.value,
+      image: this.imageRef.current.value
     }
     this.props.addBurger(burger)
     // clear form
