@@ -8,23 +8,23 @@ class EditBurgerForm extends React.Component {
       name: PropTypes.string,
       desc: PropTypes.string,
       status: PropTypes.string.isRequired,
-      price: PropTypes.number
+      price: PropTypes.number,
     }),
     updateBurger: PropTypes.func,
-    deleteBurger: PropTypes.func
+    deleteBurger: PropTypes.func,
   }
   handleChange = event => {
     //take copy of current burger
     const updatedBurger = {
       ...this.props.burger,
-      [event.currentTarget.name]: event.currentTarget.value
+      [event.currentTarget.name]: event.currentTarget.value,
     }
     // update burger
     this.props.updateBurger(this.props.index, updatedBurger)
   }
   render() {
     return (
-      <div className="fish-edit">
+      <div className="burger-edit">
         <input
           type="text"
           name="name"

@@ -5,25 +5,10 @@
 header.top
   text-align center
   h1
-    font-size 14.4rem
+    font-size 6.4rem
     line-height 0.7 // this font has a wacky baseline
     display flex
     justify-content: center;
-
-    // This is a bunch of goofy CSS to make the logo look decent
-    .ofThe
-      display flex
-      font-size 3rem
-      color orange
-      justify-content: center;
-      align-items: center;
-      background url('images/anchor.svg') center no-repeat;
-      background-size cover
-      padding 0 1rem
-      .of
-        padding-right 2rem
-        position relative
-        right -0.5rem
   h3
     margin 0
     font-size 2rem
@@ -51,13 +36,14 @@ header.top
       bottom 7px
 
 
-.catch-of-the-day
+.bobs-burgers
+  position: relative
   display flex
   height 90vh
-  max-width:1500px
+  max-width 1500px
   margin 0 auto
   margin-top 5vh
-  perspective: 1000px;
+  perspective 1000px
   transform-style preserve-3d
   & > *
     flex 1 4 auto
@@ -85,7 +71,7 @@ header.top
 // Folding Transforms
 // Take off folding when not checked
 input#fold:not(:checked) ~ #main
-  .catch-of-the-day > *
+  .bobs-burgers > *
       transform none
 
 label[for="fold"]
@@ -149,7 +135,7 @@ ul.order
 .order-title
   text-align center
 
-.fish-edit
+.burger-edit
   margin-bottom 20px
   border 2px solid black
   overflow hidden
@@ -179,14 +165,27 @@ ul.order
 
 
 // Menu Styles
-.list-of-fish
+.menu
+  &:after
+    content ""
+    background url("/images/background.jpg");
+    opacity 0.1
+    top 0
+    left 0
+    bottom 0
+    right 0
+    position absolute
+    background-repeat no-repeat
+    background-size 100%
+    background-position center
+    z-index 0
+.list-of-burgers
   border-top 2px solid black
   border-bottom 1px solid black
   padding-top 5px
   margin-top 2rem
   transform translateZ(0);
-
-.menu-fish
+.menu-burger
   border-bottom 2px solid black
   border-top 1px solid black
   padding-bottom 2rem
@@ -194,10 +193,11 @@ ul.order
   margin-bottom 5px
   clear both
   overflow hidden
+  z-index 1
   p
     margin 0
     font-size 1.8rem
-  .fish-name
+  .burger-name
     margin 0
     display flex
     justify-content space-between
@@ -211,6 +211,7 @@ ul.order
     float left
     width 150px
     margin-right 1rem
+    z-index -5
 
 button, input[type=submit]
   text-transform uppercase

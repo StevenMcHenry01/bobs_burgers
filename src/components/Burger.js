@@ -10,9 +10,9 @@ class Burger extends React.Component {
       name: PropTypes.string,
       desc: PropTypes.string,
       status: PropTypes.string.isRequired,
-      price: PropTypes.number
+      price: PropTypes.number,
     }),
-    addToOrder: PropTypes.func
+    addToOrder: PropTypes.func,
   }
   handleClick = () => {
     this.props.addToOrder(this.props.index)
@@ -21,9 +21,9 @@ class Burger extends React.Component {
     const { image, name, desc, status, price } = this.props.details
     const isAvailable = status === 'available'
     return (
-      <li className="menu-fish">
+      <li className="menu-burger">
         <img src={image} alt={name} />
-        <h3 className="fish-name">
+        <h3 className="burger-name">
           {name}
           <span className="price">{formatPrice(price)}</span>
         </h3>

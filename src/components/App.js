@@ -11,6 +11,7 @@ class App extends React.Component {
   state = {
     burgers: {},
     order: {},
+    storeName: '',
   }
   static propTypes = {
     match: PropTypes.object,
@@ -25,6 +26,10 @@ class App extends React.Component {
     if (localStorageRef) {
       this.setState({ order: JSON.parse(localStorageRef) })
     }
+    // set store name
+    this.setState({
+      storeName: params.storeID,
+    })
     // create variable for specific store name that was loaded
     this.ref = base.syncState(`${params.storeID}/burgers`, {
       context: this,
@@ -89,9 +94,9 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="catch-of-the-day">
+      <div className="bobs-burgers">
         <div className="menu">
-          <Header tagline="wowzers" />
+          <Header name={this.state.storeName} tagline="Bob's Burgers affiliate" />
           <ul className="fishes">
             {Object.keys(this.state.burgers).map(key => (
               <Burger

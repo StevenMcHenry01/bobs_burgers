@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Header = props => (
   <header className="top">
-    <h1> Burgerssss </h1>{' '}
+    <h1> {props.name} </h1>{' '}
     <h3 className="tagline">
       <span> {props.tagline} </span>{' '}
     </h3>{' '}
@@ -11,7 +11,7 @@ const Header = props => (
 )
 
 Header.propTypes = {
-  tagline: PropTypes.string.isRequired
+  tagline: PropTypes.string.isRequired,
 }
 
 export default Header

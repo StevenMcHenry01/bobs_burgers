@@ -9,7 +9,7 @@ class AddBurger extends React.Component {
   imageRef = React.createRef()
 
   static propTypes = {
-    addBurger: PropTypes.func.isRequired
+    addBurger: PropTypes.func.isRequired,
   }
 
   createBurger = event => {
@@ -19,7 +19,7 @@ class AddBurger extends React.Component {
       price: parseFloat(this.priceRef.current.value),
       status: this.statusRef.current.value,
       desc: this.descRef.current.value,
-      image: this.imageRef.current.value
+      image: this.imageRef.current.value,
     }
     this.props.addBurger(burger)
     // clear form
@@ -27,7 +27,7 @@ class AddBurger extends React.Component {
   }
   render() {
     return (
-      <form className="fish-edit" onSubmit={this.createBurger}>
+      <form className="burger-edit" onSubmit={this.createBurger}>
         <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
         <input name="price" ref={this.priceRef} type="text" placeholder="Price" />
         <select name="status" ref={this.statusRef}>

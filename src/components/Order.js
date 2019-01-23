@@ -7,7 +7,7 @@ class Order extends React.Component {
   static propTypes = {
     burgers: PropTypes.object,
     order: PropTypes.object,
-    removeFromOrder: PropTypes.func
+    removeFromOrder: PropTypes.func,
   }
   renderOrder = key => {
     const { burgers, order } = this.props
@@ -17,7 +17,7 @@ class Order extends React.Component {
     const transitionOptions = {
       classNames: 'order',
       key,
-      timeout: { enter: 500, exit: 500 }
+      timeout: { enter: 500, exit: 500 },
     }
     // first check if there is burger in order (Prevents local storage bug)
     if (!burger) return null
@@ -38,7 +38,7 @@ class Order extends React.Component {
                 <span>{count}</span>
               </CSSTransition>
             </TransitionGroup>
-            {burger.name}
+            -{burger.name}
             {formatPrice(count * burger.price)}
             <button onClick={() => this.props.removeFromOrder(key)}>⊗</button>
           </span>

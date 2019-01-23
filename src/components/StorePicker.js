@@ -5,15 +5,15 @@ import PropTypes from 'prop-types'
 class StorePicker extends React.Component {
   myInput = React.createRef()
   static propTypes = {
-    history: PropTypes.object
+    history: PropTypes.object,
   }
   goToStore = event => {
     // stop form from submitting
     event.preventDefault()
     // get text from input
-    const storeName = this.myInput.current.value
+    const storeNameRef = this.myInput.current.value
     // change page to store
-    this.props.history.push(`/store/${storeName}`)
+    this.props.history.push(`/store/${storeNameRef}`)
   }
   render() {
     return (
